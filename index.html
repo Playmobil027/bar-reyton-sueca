@@ -104,6 +104,7 @@ header nav a:hover{border-color:var(--navy)}
 .sticker .pon span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 .sticker .pon{padding:.3em .5em;font-size:1.1rem}
 .sticker.largo .nombre{font-size:1.18rem}
+.sticker.xl .nombre{font-size:.98rem;overflow-wrap:normal}
 .sticker .ing{font-size:.8rem;line-height:1.35;padding:4px 11px 0;display:block}
 .sticker .nuevo{position:absolute;right:-12px;top:-16px;background:var(--amar);border:3px solid var(--navy);border-radius:50%;width:62px;height:62px;display:grid;place-items:center;font:400 .95rem/1 var(--display);transform:rotate(14deg);z-index:2}
 .sticker .pon{margin:10px 11px 0;display:inline-flex;align-items:center;gap:.4em;font-weight:700;font-size:.86rem;border:2px dashed var(--navy);border-radius:999px;padding:.25em .8em .25em .55em}
@@ -127,7 +128,7 @@ header nav a:hover{border-color:var(--navy)}
 .acompana .fotos .a{left:0;top:0;width:56%;transform:rotate(-4deg)}
 .acompana .fotos .b{right:0;top:26%;width:56%;transform:rotate(3.5deg)}
 .acompana .fotos .pegatina{background:var(--blanco);border-radius:22px}
-.acompana .fotos img{border-radius:14px;aspect-ratio:1;object-fit:cover;width:100%}
+.acompana .fotos img{border-radius:14px;aspect-ratio:1;object-fit:cover;width:100%;height:auto}
 .acompana .grande{margin-top:8px;font-size:1.05rem;max-width:44ch}
 
 /* ---------- reservar ---------- */
@@ -248,6 +249,7 @@ body.ver-editables .edit{outline:3px dashed #E0187F;outline-offset:3px;backgroun
   .stickers{gap:40px 26px;grid-template-columns:repeat(3,1fr)}
   .sticker .nombre{font-size:1.9rem;padding:12px 14px 2px}
   .sticker.largo .nombre{font-size:1.5rem}
+  .sticker.xl .nombre{font-size:1.35rem}
   .sticker .ing{font-size:.9rem;padding:4px 14px 0}
   .sticker .hola{font-size:.82rem;padding:7px 14px 5px}
   .sticker .pon{margin:12px 14px 0;padding:.25em .8em .25em .55em;font-size:.86rem}
@@ -530,7 +532,7 @@ const sel=new Set();
 const ul=document.getElementById('stickers');
 BOCATAS.forEach(([n,t,ing,nuevo],i)=>{
   const li=document.createElement('li');li.dataset.t=t;
-  li.innerHTML=`<button type="button" class="sticker${n.length>12?' largo':''}" aria-pressed="false" data-n="${n}">
+  li.innerHTML=`<button type="button" class="sticker${n.length>15?' xl':n.length>12?' largo':''}" aria-pressed="false" data-n="${n}">
     ${nuevo?'<span class="nuevo">nuevo</span>':''}
     <span class="hola"><span>Hola, me llamo</span></span>
     <span class="nombre">${n}</span>
