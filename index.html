@@ -58,7 +58,7 @@ header nav a:hover{border-color:var(--navy)}
 /* ---------- hero ---------- */
 .hero{padding:8px 0 70px;position:relative}
 .hero .wrap{display:grid;gap:28px}
-.hero h1{font-size:clamp(3.6rem,17.5vw,7.4rem);margin:14px 0 18px;text-wrap:balance}
+.hero h1{font-size:clamp(3.2rem,14.6vw,7.4rem);margin:14px 0 18px;text-wrap:balance}
 .hero h1 em{font-style:normal;display:inline-block;background:var(--blanco);padding:0 .14em;border-radius:.12em;transform:rotate(-2deg);box-shadow:5px 6px 0 var(--navy);border:3px solid var(--navy)}
 .hero p.lede{font-size:1.18rem;max-width:34ch;font-weight:500}
 .hero .acciones{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px}
@@ -88,22 +88,25 @@ header nav a:hover{border-color:var(--navy)}
 .filtros{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 30px}
 .filtros button{font:700 .95rem var(--texto);color:var(--navy);background:transparent;border:3px solid var(--navy);border-radius:999px;padding:.4em 1.1em;min-height:44px;cursor:pointer}
 .filtros button[aria-pressed=true]{background:var(--navy);color:var(--blanco)}
-.stickers{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,235px),1fr));gap:30px 22px}
+.stickers{list-style:none;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:26px 14px}
+.stickers li[hidden]{display:none}
 .sticker{--c:var(--rosa);position:relative;background:var(--blanco);border:3px solid var(--navy);border-radius:18px 26px 20px 28px;box-shadow:5px 6px 0 var(--navy);padding:0 0 14px;cursor:pointer;text-align:left;width:100%;font:inherit;color:inherit;display:block;transition:transform .15s,box-shadow .15s}
-.sticker:nth-child(3n+1){--c:var(--rosa)}
-.sticker:nth-child(3n+2){--c:var(--amar)}
-.sticker:nth-child(3n){--c:var(--aqua)}
+.stickers li:nth-child(3n+1) .sticker{--c:var(--rosa)}
+.stickers li:nth-child(3n+2) .sticker{--c:var(--amar)}
+.stickers li:nth-child(3n) .sticker{--c:var(--aqua)}
 .stickers li:nth-child(4n+1) .sticker{transform:rotate(-1.6deg)}
 .stickers li:nth-child(4n+2) .sticker{transform:rotate(1.2deg)}
 .stickers li:nth-child(4n+3) .sticker{transform:rotate(-.6deg)}
 .stickers li:nth-child(4n) .sticker{transform:rotate(1.8deg)}
 .sticker:hover{transform:rotate(0) translateY(-3px)!important}
-.sticker .hola{background:var(--c);border-bottom:3px solid var(--navy);border-radius:15px 23px 0 0;padding:7px 14px 5px;font-weight:700;font-size:.82rem;display:flex;justify-content:space-between;align-items:center}
-.sticker .nombre{font:400 clamp(1.9rem,8vw,2.3rem)/1 var(--display);padding:12px 14px 2px;color:var(--ciruela);overflow-wrap:anywhere;display:block;min-height:2.1em;display:flex;align-items:center}
-.sticker.largo .nombre{font-size:clamp(1.45rem,6vw,1.8rem)}
-.sticker .ing{font-size:.9rem;line-height:1.4;padding:4px 14px 0;display:block}
+.sticker .hola{background:var(--c);border-bottom:3px solid var(--navy);border-radius:15px 23px 0 0;padding:6px 11px 4px;font-weight:700;font-size:.74rem;display:flex;justify-content:space-between;align-items:center}
+.sticker .nombre{font:400 1.45rem/1 var(--display);padding:10px 11px 2px;color:var(--ciruela);overflow-wrap:anywhere;display:block;min-height:2.1em;display:flex;align-items:center}
+.sticker .pon span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.sticker .pon{padding:.3em .5em;font-size:1.1rem}
+.sticker.largo .nombre{font-size:1.18rem}
+.sticker .ing{font-size:.8rem;line-height:1.35;padding:4px 11px 0;display:block}
 .sticker .nuevo{position:absolute;right:-12px;top:-16px;background:var(--amar);border:3px solid var(--navy);border-radius:50%;width:62px;height:62px;display:grid;place-items:center;font:400 .95rem/1 var(--display);transform:rotate(14deg);z-index:2}
-.sticker .pon{margin:12px 14px 0;display:inline-flex;align-items:center;gap:.4em;font-weight:700;font-size:.86rem;border:2px dashed var(--navy);border-radius:999px;padding:.25em .8em .25em .55em}
+.sticker .pon{margin:10px 11px 0;display:inline-flex;align-items:center;gap:.4em;font-weight:700;font-size:.86rem;border:2px dashed var(--navy);border-radius:999px;padding:.25em .8em .25em .55em}
 .sticker .pon svg{width:1em;height:1em}
 .sticker[aria-pressed=true]{background:var(--c);box-shadow:5px 6px 0 var(--navy),0 0 0 6px var(--blanco)}
 .sticker[aria-pressed=true] .hola{background:var(--blanco)}
@@ -242,7 +245,13 @@ body.ver-editables .edit{outline:3px dashed #E0187F;outline-offset:3px;backgroun
   .chapa.hora{width:140px;height:140px;font-size:2.6rem}
   .banda ul{grid-template-columns:repeat(4,auto);justify-content:space-between}
   .carta .cab{grid-template-columns:1.2fr 1fr;align-items:end}
-  .stickers{gap:40px 26px}
+  .stickers{gap:40px 26px;grid-template-columns:repeat(3,1fr)}
+  .sticker .nombre{font-size:1.9rem;padding:12px 14px 2px}
+  .sticker.largo .nombre{font-size:1.5rem}
+  .sticker .ing{font-size:.9rem;padding:4px 14px 0}
+  .sticker .hola{font-size:.82rem;padding:7px 14px 5px}
+  .sticker .pon{margin:12px 14px 0;padding:.25em .8em .25em .55em;font-size:.86rem}
+  .sticker .pon span{position:static;width:auto;height:auto;overflow:visible;clip:auto}
   .stickers li:nth-child(even){margin-top:26px}
   .acompana .wrap{grid-template-columns:1fr 1fr;align-items:center;gap:60px}
   .acompana .fotos{min-height:560px}
